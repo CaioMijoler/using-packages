@@ -132,7 +132,31 @@ optionMulti.map((option, index) => {
       return { id: value };
     });
   }
-
+--SELECT WIH DEFAULT VALUE
+<AreaMultiSelect>
+  <LabelText name="PRODUTOR" />
+   <Select
+    closeMenuOnSelect={false}
+    components={animatedComponents}
+    isMulti
+    defaultValue={optionMulti[0]}
+    options={optionMulti}
+    value={optionMulti.find(state => state === exampleMulti)}
+    onChange={value => setExampleMulti(value)}
+    className="basic-multi-select"
+    classNamePrefix="select"
+    placeholder="Select a value..."
+    theme={theme => ({
+      ...theme,
+      borderRadius: 4,
+      colors: {
+        ...theme.colors,
+        primary: `${colors.pickerNine}`,
+      },
+    })}
+    styles={customStyles}
+  />
+</AreaMultiSelect>
     
     
   
