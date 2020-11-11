@@ -1,0 +1,45 @@
+Basic example using datepicker
+
+import DatePicker, { registerLocale } from 'react-datepicker';
+import { ptBR } from 'date-fns/locale';
+import { format } from 'date-fns'; 
+
+registerLocale('ptBR', ptBR);
+
+const [dateExample , setDateExample] = useState('');
+
+---Stylization---
+<DatePicker
+  onChange={date => setDateExample(date)}
+  locale="ptBR"
+  isClearable
+  dateFormat="dd/MM/yyyy"
+  placeholderText="Select data..."
+  selected={dateExample}
+  startDate={dateExample}
+  disabled={false}
+/>
+
+OBS:  using globalStyle
+
+.react-datepicker__input-container{
+    display: inline !important;
+    input {
+      font: 14px Carnero,sans-serif,Helvetica;
+      height: 30px;
+      width: 95%;
+      margin: 5px;
+      padding-left: 7px;
+      border: 1px solid;
+      border-radius: 4px;
+      border-color: hsl(0,0%,70%);
+    }
+  }
+
+.react-datepicker__close-icon {
+padding: 2px 8px 0px 0px !important; 
+}
+
+--getting value Format(yyyy-MM-dd)--
+ const emissionDate = format(emissionDateState, 'yyyy-MM-dd');
+ 
