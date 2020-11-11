@@ -1,0 +1,90 @@
+/* eslint-disable no-empty */
+export function dateTimeCountrySpecify(countryGMT) {
+  const date = new Date();
+  const dataConvertCountry = `${date.toGMTString()}${countryGMT}`;
+  const newDateCountry = new Date(dataConvertCountry);
+  return newDateCountry;
+}
+
+export function removeAccent(str) {
+  return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+export function verifyString(str) {
+  const Alphabet = /[^A-Za-zÀ-ÖØ-öø-ÿ ]/;
+  if (!Alphabet.exec(str) && str.length >= 3) {
+  }
+}
+
+export function number(str) {
+  return str
+    .replace(/\D/g, '')
+}
+
+export function formatPriceValue(value) {
+  return value
+  .replace(/\D/g, '')
+  .replace(/(\d)(\d{2})$/, '$1.$2')
+}
+
+export function convertDateToPT_BR(data) {
+  const dia = data.substring(0, 10).split('-');
+  const hora = data.substring(11,16)
+  const newDate = `${dia[2]}/${dia[1]}/${dia[0]} ${hora}`;
+  return newDate;
+}
+
+export const celPhoneMask = value => {
+  return value
+    .replace(/\D/g, '')
+    .replace(/^(\d{2})(\d)/, '($1)$2')
+    .replace(/(\d{5})(\d)/, '$1-$2');
+};
+
+export const rgMask = value => {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1-$2');
+};
+
+export const cpfMask = value => {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1-$2');
+};
+
+export const cnpjMask = value => {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{2})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1/$2')
+    .replace(/(\d{4})(\d)/, '$1-$2');
+};
+
+export const ieMask = value => {
+  return value
+    .replace(/\D/g, '')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2')
+    .replace(/(\d{3})(\d)/, '$1.$2');
+};
+
+export const cepMask = value => {
+  return value.replace(/\D/g, '').replace(/(\d{5})(\d)/, '$1-$2');
+};
+
+export const priceMask = value => {
+  return value;
+};
+
+export function currencyFormat(num) {
+  return Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  }).format(num);
+}
