@@ -81,6 +81,57 @@ export const customStyles = {
     
 
 Basic Example MULTI-SELECT using react
+const [exampleMulti, setExampleMulti] = useState('');
+const [valueApi] = useState([{id: 1, name: 'Jose'}, {id: 2, name: 'Joao'}]);
+const [optionMulti] = useState([{value: 1, label: 'Jose'}, {value: 2, label: 'Joao'}]);
+
+---load information example select----
+optionMulti.map((option, index) => {
+  let newExample = [];
+  if (valueApi.length > 0) { 
+    valueApi.map((element)=>{
+      const {id, name} = element
+      newExample.push({ value: id, label: name})
+    })
+    setExampleMulti(newExample)
+  } else {
+    setExampleMulti([])
+  } 
+});       
+ 
+-----usage----
+<AreaMultiSelect>
+  <LabelText name="PRODUTOR" />
+   <Select
+    closeMenuOnSelect={false}
+    components={animatedComponents}
+    isMulti
+    options={optionMulti}
+    value={exampleMulti}
+    onChange={value => setExampleMulti(value)}
+    className="basic-multi-select"
+    classNamePrefix="select"
+    placeholder="Select a value..."
+    theme={theme => ({
+      ...theme,
+      borderRadius: 4,
+      colors: {
+        ...theme.colors,
+        primary: `${colors.pickerNine}`,
+      },
+    })}
+    styles={customStyles}
+  />
+</AreaMultiSelect>
+
+---GETTING VALUE--
+  let newValueExample;
+  if (exampleMulti.length !== 0 || exampleMulti !== '') {
+    newValueExample = exampleMulti.map(elements => {
+      const { value } = elements;
+      return { id: value };
+    });
+  }
 
     
     
