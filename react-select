@@ -101,7 +101,7 @@ optionMulti.map((option, index) => {
  
 -----usage----
 <AreaMultiSelect>
-  <LabelText name="PRODUTOR" />
+  <LabelText name="EXAMPLE" />
    <Select
     closeMenuOnSelect={false}
     components={animatedComponents}
@@ -134,7 +134,7 @@ optionMulti.map((option, index) => {
   }
 --SELECT WIH DEFAULT VALUE
 <AreaMultiSelect>
-  <LabelText name="PRODUTOR" />
+  <LabelText name="EXAMPLE" />
    <Select
     closeMenuOnSelect={false}
     components={animatedComponents}
