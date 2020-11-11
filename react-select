@@ -1,0 +1,87 @@
+import Select from 'react-select';
+import makeAnimated from 'react-select/animated';
+
+Basic Example SELECT using react
+
+const [selectExample, setSelectExample] = useState('');
+const [valueApi] = useState(0)
+const [optionExample] = useState([
+  { value: 0, label: 'VALOR 1'},
+  { value: 1, label: 'VALOR 2'},
+  { value: 3, label: 'VALOR 3'},
+]);
+
+---------load Information example---------------
+
+optionExample.map(option => {
+  if(option.value === valueApi) {
+    setSelectExample({value: option.value, label: option.label});
+  }
+}) 
+
+--------Stylization Select-------------
+<AreaMultiSelect>
+  <LabelText name="EXEMPLO" />
+  <Select
+    closeMenuOnSelect
+    components={animatedComponents}
+    isMulti={false}
+    value={selectExample}
+    options={optionExample}
+    onChange={value => setSelectExample(value)}
+    className="basic-single"
+    classNamePrefix="select"
+    placeholder="Select a value..."
+    theme={theme => ({
+      ...theme,
+      borderRadius: 4,
+      colors: {
+        ...theme.colors,
+        primary: `${colors.pickerNine}`,
+      },
+    })}
+    styles={customStyles}
+  />
+</AreaMultiSelect>
+------------------------------
+
+OBS: using styled-components
+
+export const AreaMultiSelect = styled.div`
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  width: 100%;
+  font-family: Carnero, sans-serif, Helvetica;
+  font-weight: bold;
+`;
+
+
+export const customStyles = {
+  option: provided => ({
+    ...provided,
+    color: #000,
+  }),
+  control: (base, state) => ({
+    ...base,
+    margin: 7,
+    minHeight: 40, 
+    fontSize: 18,
+    color: #000,
+    placeholderColor: #000,
+
+  }),
+  singleValue: (provided) => ({
+    ...provided,
+    color: #000,
+  })
+};
+----------Get value and label afeter select----------
+    const { value, label } =  selectSituationState;
+    
+
+Basic Example MULTI-SELECT using react
+
+    
+    
+  
